@@ -1642,7 +1642,18 @@
             const username = document.getElementById('admin-username').value;
             const password = document.getElementById('admin-password').value;
             
-            if (username === 'admin' && password === 'homevalue123') {
+            // Valid admin accounts
+            const adminAccounts = [
+                { username: 'adityasai', password: '1234' },
+                { username: 'rohit mondal', password: '1234' },
+                { username: 'admin', password: 'homevalue123' }
+            ];
+            
+            const isValidAdmin = adminAccounts.some(account => 
+                account.username === username && account.password === password
+            );
+            
+            if (isValidAdmin) {
                 isAdmin = true;
                 closeAdminLogin();
                 document.getElementById('admin-btn').style.display = 'none';
